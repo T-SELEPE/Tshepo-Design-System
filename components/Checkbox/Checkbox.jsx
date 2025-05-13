@@ -68,7 +68,7 @@ export const Checkbox = ({
       >
         {checkboxChecked && (
           <CheckIcon>
-            <MaterialIcons.Check />
+            <MaterialIcons.Check style={{ fontSize: '16px', display: 'block' }} />
           </CheckIcon>
         )}
       </CheckboxCheckmark>
