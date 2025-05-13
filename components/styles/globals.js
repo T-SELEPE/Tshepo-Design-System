@@ -21,6 +21,7 @@ export const typography = {
 // Color variables
 export const colors = {
   primary: '#6941C6',
+  blue500: '#2563EB',
   gray50: '#F9FAFB',
   gray100: '#F2F4F7',
   gray200: '#EAECF0',
@@ -30,6 +31,7 @@ export const colors = {
   gray900: '#101828',
   white: '#FFFFFF',
   focus: 'rgba(105, 65, 198, 0.3)', // Primary with 30% opacity for focus ring
+  blueRing: 'rgba(37, 99, 235, 0.3)', // Blue focus ring for blue primary elements
   success: '#12B76A',
   error: '#F04438',
   warning: '#F79009',
@@ -70,6 +72,12 @@ export const animation = {
 export const focusStyle = `
   outline: none;
   box-shadow: 0 0 0 4px ${colors.focus};
+`;
+
+// Blue focus style for blue elements
+export const blueFocusStyle = `
+  outline: none;
+  box-shadow: 0 0 0 4px ${colors.blueRing};
 `;
 
 // Use in components like:

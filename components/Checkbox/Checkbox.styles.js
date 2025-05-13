@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { colors, typography, borderRadius, spacing, animation, focusStyle } from '../styles/globals';
+import { colors, typography, borderRadius, spacing, animation, focusStyle, blueFocusStyle } from '../styles/globals';
 
 export const CheckboxContainer = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   opacity: ${props => (props.disabled ? 0.6 : 1)};
@@ -18,7 +18,7 @@ export const CheckboxInput = styled.input`
   margin: 0;
   
   &:focus + .checkmark {
-    ${focusStyle}
+    ${blueFocusStyle}
   }
 `;
 
@@ -33,20 +33,20 @@ const getVariantStyles = (variant, checked, error) => {
   switch (variant) {
     case 'outlined':
       return css`
-        border: 1px solid ${colors.primary};
+        border: 1px solid ${colors.blue500};
         background-color: transparent;
-        color: ${colors.primary};
+        color: ${colors.blue500};
       `;
     case 'filled':
       return css`
-        border: 1px solid ${colors.primary};
-        background-color: ${checked ? colors.primary : 'transparent'};
+        border: 1px solid ${colors.blue500};
+        background-color: ${checked ? colors.blue500 : 'transparent'};
         color: ${colors.white};
       `;
     default:
       return css`
         border: 1px solid ${colors.gray300};
-        background-color: ${checked ? colors.primary : colors.white};
+        background-color: ${checked ? colors.blue500 : colors.white};
         color: ${colors.white};
       `;
   }
@@ -57,17 +57,17 @@ export const CheckboxCheckmark = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 18px;
-  min-width: 18px;
+  height: 20px;
+  min-width: 20px;
+  width: 20px;
   border-radius: ${borderRadius.sm};
   transition: all ${animation.normal} ease;
-  margin-top: 2px;
   
   ${props => getVariantStyles(props.variant, props.checked, props.error)}
   
   &:hover {
     ${props => !props.disabled && css`
-      border-color: ${colors.primary};
+      border-color: ${colors.blue500};
     `}
   }
 `;
@@ -79,6 +79,7 @@ export const CheckIcon = styled.span`
   width: 100%;
   height: 100%;
   color: currentColor;
+  font-size: 16px;
 `;
 
 export const CheckboxLabel = styled.label`
@@ -87,6 +88,7 @@ export const CheckboxLabel = styled.label`
   color: ${props => props.disabled ? colors.gray500 : colors.gray900};
   margin-left: ${spacing.sm};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  line-height: 1.5;
   
   .hint {
     font-size: ${typography.fontSizes.sm};
