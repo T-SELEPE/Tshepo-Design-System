@@ -1,0 +1,184 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Getting Started" />
+
+# Getting Started
+
+Welcome to The Elektrik ⚡ Design System! This guide will help you get up and running with our component library in your React project.
+
+## Installation
+
+Install the Elektrik Design System using npm or yarn:
+
+```bash
+# Using npm
+npm install elektrik-design-system
+
+# Using yarn
+yarn add elektrik-design-system
+```
+
+## Setting Up
+
+To use the design system, you need to wrap your application with the `GlobalStyles` component to ensure consistent font usage and styling across all components:
+
+```jsx
+import React from 'react';
+import { GlobalStyles } from 'elektrik-design-system';
+
+function App() {
+  return (
+    <>
+      <GlobalStyles /> {/* Add this at the root of your app */}
+      <div className="app">
+        {/* Your app content */}
+      </div>
+    </>
+  );
+}
+```
+
+## Basic Usage
+
+Import components directly from the package:
+
+```jsx
+import React from 'react';
+import { Button, Input, Alert } from 'elektrik-design-system';
+
+function LoginForm() {
+  return (
+    <div>
+      <Alert variant="info">Please enter your credentials.</Alert>
+      <Input 
+        label="Email" 
+        placeholder="Enter your email" 
+        type="email" 
+        required 
+      />
+      <Input 
+        label="Password" 
+        placeholder="Enter your password" 
+        type="password" 
+        required 
+      />
+      <Button variant="primary" fullWidth>
+        Sign In
+      </Button>
+    </div>
+  );
+}
+```
+
+## Design Tokens
+
+Elektrik provides a set of design tokens for consistent styling. You can import and use these tokens in your custom components:
+
+```jsx
+import { colors, typography, spacing } from 'elektrik-design-system';
+import styled from 'styled-components';
+
+const CustomElement = styled.div`
+  color: ${colors.primary};
+  font-family: ${typography.fontFamily};
+  padding: ${spacing.md};
+  border-radius: ${borderRadius.md};
+`;
+```
+
+See the [Design Tokens](/docs/documentation-design-tokens--docs) section for all available tokens.
+
+## Using Material UI Components
+
+Elektrik includes integration with Material UI. You can use the MaterialButton component and MaterialIcons:
+
+```jsx
+import { MaterialButton, MaterialIcons } from 'elektrik-design-system';
+
+function SubmitForm() {
+  return (
+    <div>
+      <MaterialButton 
+        variant="contained" 
+        color="primary"
+        endIcon={<MaterialIcons.ChevronRight />}
+      >
+        Submit
+      </MaterialButton>
+    </div>
+  );
+}
+```
+
+See the [Material UI Integration](/docs/documentation-material-ui-integration--docs) section for more details.
+
+## Component Documentation
+
+Each component in the Elektrik Design System is documented with examples and API references. Browse the component documentation to learn about:
+
+- Props and customization options
+- Usage examples
+- Best practices
+- Accessibility considerations
+
+## Available Components
+
+Elektrik includes the following components:
+
+- **[Button](/docs/documentation-components-button--docs)**: Standard buttons and Material UI buttons
+- **[Input](/docs/documentation-components-input--docs)**: Text input fields
+- **[Alert](/docs/documentation-components-alert--docs)**: Notification messages
+- **[Dropdown](/docs/documentation-components-dropdown--docs)**: Selection menus
+- **[Toggle](/docs/documentation-components-toggle--docs)**: On/off switches
+- **Tag**: Categorization labels
+- **Radio**: Radio button inputs
+- **Checkbox**: Checkboxes for multiple selections
+- **Rating**: Star-based rating component
+- **Breadcrumb**: Navigation component
+- **Textarea**: Multi-line text input
+
+## Theming
+
+While Elektrik provides a default theme, you can customize the appearance by adjusting the design tokens:
+
+```jsx
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from 'elektrik-design-system';
+
+// Create a custom theme by extending the default theme
+const customTheme = {
+  ...defaultTheme,
+  colors: {
+    ...defaultTheme.colors,
+    primary: '#0066CC', // Override primary color
+  },
+};
+
+function App() {
+  return (
+    <ThemeProvider theme={customTheme}>
+      <GlobalStyles />
+      <div className="app">
+        {/* Your app content */}
+      </div>
+    </ThemeProvider>
+  );
+}
+```
+
+## Troubleshooting
+
+If you encounter any issues while using Elektrik:
+
+1. Ensure you have the correct version installed
+2. Check that you've included `GlobalStyles` at the root of your app
+3. Verify that your React version is compatible (React 16.8+ required)
+4. Review the console for any error messages
+
+If problems persist, please refer to our GitHub repository for known issues or to submit a new issue.
+
+## Next Steps
+
+- Explore the [component documentation](/docs/documentation-components-button--docs)
+- Learn about [design tokens](/docs/documentation-design-tokens--docs)
+- See [Material UI integration](/docs/documentation-material-ui-integration--docs) 

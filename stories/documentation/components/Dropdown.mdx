@@ -1,0 +1,208 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Components/Dropdown" />
+
+# Dropdown
+
+The Dropdown component provides a way to select a value from a list of options, conserving space while allowing users to choose from multiple options.
+
+## Import
+
+```jsx
+import { Dropdown } from 'elektrik-design-system';
+```
+
+## Basic Usage
+
+```jsx
+const options = [
+  { value: 'option1', label: 'Option 1' },
+  { value: 'option2', label: 'Option 2' },
+  { value: 'option3', label: 'Option 3' },
+];
+
+<Dropdown 
+  label="Select an option" 
+  placeholder="Choose option"
+  options={options}
+/>
+```
+
+## Controlled vs Uncontrolled
+
+The Dropdown can be used in controlled or uncontrolled mode:
+
+### Controlled
+
+```jsx
+const [value, setValue] = useState('option1');
+
+<Dropdown 
+  label="Controlled Dropdown"
+  options={options}
+  value={value}
+  onChange={(newValue) => setValue(newValue)}
+/>
+```
+
+### Uncontrolled
+
+```jsx
+<Dropdown 
+  label="Uncontrolled Dropdown"
+  options={options}
+  defaultValue="option1"
+/>
+```
+
+## With Icons
+
+You can add icons to dropdown options:
+
+```jsx
+const optionsWithIcons = [
+  { value: 'home', label: 'Home', icon: <HomeIcon /> },
+  { value: 'settings', label: 'Settings', icon: <SettingsIcon /> },
+  { value: 'profile', label: 'Profile', icon: <UserIcon /> },
+];
+
+<Dropdown 
+  label="Select page"
+  options={optionsWithIcons}
+  withIcon
+/>
+```
+
+## Variants
+
+The Dropdown component offers multiple visual variants:
+
+```jsx
+<Dropdown 
+  variant="default"
+  label="Default" 
+  options={options}
+/>
+
+<Dropdown 
+  variant="outlined"
+  label="Outlined" 
+  options={options}
+/>
+
+<Dropdown 
+  variant="filled"
+  label="Filled" 
+  options={options}
+/>
+```
+
+## Sizes
+
+```jsx
+<Dropdown 
+  size="small"
+  label="Small" 
+  options={options}
+/>
+
+<Dropdown 
+  size="medium"
+  label="Medium" 
+  options={options}
+/>
+
+<Dropdown 
+  size="large"
+  label="Large" 
+  options={options}
+/>
+```
+
+## States
+
+The dropdown supports various states:
+
+```jsx
+<Dropdown 
+  label="Normal state" 
+  options={options}
+/>
+
+<Dropdown 
+  label="Disabled" 
+  options={options}
+  disabled
+/>
+
+<Dropdown 
+  label="Error state" 
+  options={options}
+  error
+/>
+
+<Dropdown 
+  label="Loading" 
+  options={options}
+  loading
+/>
+```
+
+## With Dividers
+
+You can add dividers between dropdown options:
+
+```jsx
+<Dropdown 
+  label="With dividers" 
+  options={options}
+  withDividers
+/>
+```
+
+## Custom Headers and Footers
+
+The dropdown supports custom header and footer content:
+
+```jsx
+<Dropdown 
+  label="With custom header/footer" 
+  options={options}
+  headerContent={<div>Custom header content</div>}
+  footerContent={<div>Custom footer content</div>}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | | Label text for the dropdown |
+| `placeholder` | `string` | `'Select an option'` | Placeholder text when no option is selected |
+| `options` | `array` | `[]` | Array of options objects: `{ value, label, icon, disabled }` |
+| `value` | `string\|number` | | Current selected value (controlled) |
+| `defaultValue` | `string\|number` | | Default selected value (uncontrolled) |
+| `disabled` | `boolean` | `false` | Whether the dropdown is disabled |
+| `size` | `string` | `'medium'` | Size of the dropdown (`small`, `medium`, `large`) |
+| `variant` | `string` | `'default'` | Visual variant (`default`, `outlined`, `filled`) |
+| `loading` | `boolean` | `false` | Whether the dropdown is in loading state |
+| `error` | `boolean` | `false` | Whether the dropdown has an error |
+| `withIcon` | `boolean` | `false` | Whether to show icons in the dropdown |
+| `withDividers` | `boolean` | `false` | Whether to show dividers between options |
+| `headerContent` | `node` | | Content to display in the header |
+| `footerContent` | `node` | | Content to display in the footer |
+| `onChange` | `function` | | Handler for change events - `(value, option) => void` |
+| `onOpen` | `function` | | Handler for when dropdown opens |
+| `onClose` | `function` | | Handler for when dropdown closes |
+| `className` | `string` | `''` | Additional CSS class |
+
+## Best Practices
+
+- Use clear and descriptive labels for dropdowns
+- Keep option labels concise and understandable
+- Arrange options in a logical order (alphabetical, numerical, etc.)
+- Use icons to enhance recognition, not replace text
+- For dropdowns with many options, consider categorizing or filtering
+- If a default option makes sense, set it using `defaultValue`
+- Provide visual feedback when a dropdown is disabled or has an error
+- Ensure dropdowns are accessible using keyboard navigation 

@@ -1,0 +1,126 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Components/Toggle" />
+
+# Toggle
+
+The Toggle component provides a switch control that allows users to turn an option on or off. It's a visual representation of a boolean state.
+
+## Import
+
+```jsx
+import { Toggle } from 'elektrik-design-system';
+```
+
+## Basic Usage
+
+```jsx
+<Toggle />
+<Toggle checked />
+```
+
+## With Label
+
+```jsx
+<Toggle label="Notifications" />
+<Toggle label="Dark Mode" checked />
+```
+
+## Controlled vs Uncontrolled
+
+### Controlled
+
+```jsx
+const [checked, setChecked] = useState(false);
+
+<Toggle 
+  checked={checked}
+  onChange={(newValue) => setChecked(newValue)}
+  label="Controlled Toggle"
+/>
+```
+
+### Uncontrolled
+
+```jsx
+<Toggle 
+  defaultChecked={true}
+  label="Uncontrolled Toggle"
+/>
+```
+
+## Sizes
+
+The Toggle component supports different sizes:
+
+```jsx
+<Toggle size="small" label="Small" />
+<Toggle size="medium" label="Medium" /> {/* default */}
+<Toggle size="large" label="Large" />
+```
+
+## Disabled State
+
+```jsx
+<Toggle disabled label="Disabled toggle" />
+<Toggle disabled checked label="Disabled and checked" />
+```
+
+## Label Placement
+
+You can place the label on either side of the toggle:
+
+```jsx
+<Toggle labelPlacement="start" label="Label before toggle" />
+<Toggle labelPlacement="end" label="Label after toggle" /> {/* default */}
+```
+
+## Colors
+
+Customize the toggle's active color:
+
+```jsx
+<Toggle color="primary" label="Primary color" /> {/* default */}
+<Toggle color="success" label="Success color" />
+<Toggle color="error" label="Error color" />
+<Toggle color="warning" label="Warning color" />
+<Toggle color="info" label="Info color" />
+```
+
+## With Helper Text
+
+Add helper text to provide additional context:
+
+```jsx
+<Toggle 
+  label="Enable notifications" 
+  helperText="You'll receive updates about system events"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `checked` | `boolean` | | Controlled checked state |
+| `defaultChecked` | `boolean` | `false` | Default checked state (uncontrolled) |
+| `label` | `node` | | Label text for the toggle |
+| `disabled` | `boolean` | `false` | Whether the toggle is disabled |
+| `size` | `string` | `'medium'` | Size of the toggle (`small`, `medium`, `large`) |
+| `color` | `string` | `'primary'` | Color of the toggle when active (`primary`, `success`, `error`, `warning`, `info`) |
+| `labelPlacement` | `string` | `'end'` | Placement of the label (`start`, `end`) |
+| `helperText` | `node` | | Helper text providing additional information |
+| `name` | `string` | | Name attribute for the input element |
+| `required` | `boolean` | `false` | Whether the toggle is required |
+| `onChange` | `function` | | Handler for change events - `(checked: boolean, event) => void` |
+| `className` | `string` | `''` | Additional CSS class |
+
+## Best Practices
+
+- Use clear labels that describe the option being toggled
+- Place toggles consistently in your interface
+- Use color to reinforce the toggle state, but don't rely solely on color for accessibility
+- For important toggles, confirm with the user before applying changes
+- Use a toggle for immediate boolean actions, not for actions requiring confirmation
+- Consider using a checkbox for optional selections in forms instead of a toggle
+- Ensure toggles are accessible to keyboard and screen reader users 

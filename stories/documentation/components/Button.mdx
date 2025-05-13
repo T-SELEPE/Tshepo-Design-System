@@ -1,0 +1,106 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Button } from '../../../components/Button/Button';
+import { MaterialButton } from '../../../components/Button/MaterialButton';
+import { MaterialIcons } from '../../../components/utils/materialIcons';
+
+<Meta title="Documentation/Components/Button" />
+
+# Button
+
+Buttons allow users to perform actions with a single click. The Elektrik Design System provides two button implementations:
+
+1. `Button` - Our standard styled-components button
+2. `MaterialButton` - A button implemented using Material UI
+
+## Standard Button
+
+The standard `Button` component provides various visual styles, sizes, and states.
+
+### Import
+
+```jsx
+import { Button } from 'elektrik-design-system';
+```
+
+### Basic Usage
+
+```jsx
+<Button>Click Me</Button>
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="danger">Danger</Button>
+<Button disabled>Disabled</Button>
+```
+
+### Button Variants
+
+The `Button` component supports these variants:
+- `primary` (default) - Main action button
+- `secondary` - Less prominent actions
+- `outline` - Bordered button with transparent background
+- `success` - For success/confirmation actions
+- `danger` - For destructive actions
+- `warning` - For cautionary actions
+- `info` - For informative actions
+
+### Sizes
+
+```jsx
+<Button size="small">Small</Button>
+<Button size="medium">Medium</Button> {/* default */}
+<Button size="large">Large</Button>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `node` | | Button content |
+| `variant` | `string` | `'primary'` | Visual style (`primary`, `secondary`, `outline`, `success`, `danger`, `warning`, `info`) |
+| `size` | `string` | `'medium'` | Button size (`small`, `medium`, `large`) |
+| `disabled` | `boolean` | `false` | Whether the button is disabled |
+| `fullWidth` | `boolean` | `false` | Whether the button takes the full width of its container |
+| `rounded` | `boolean` | `false` | Whether to use a fully rounded (pill) shape |
+| `className` | `string` | `''` | Additional CSS class to apply |
+| `onClick` | `function` | | Click handler |
+
+## Material Button
+
+The `MaterialButton` component is built on Material UI's Button component with styling that matches our design system.
+
+### Import
+
+```jsx
+import { MaterialButton } from 'elektrik-design-system';
+```
+
+### Basic Usage
+
+```jsx
+<MaterialButton>Default Button</MaterialButton>
+<MaterialButton variant="outlined" color="primary">Outlined</MaterialButton>
+<MaterialButton variant="text" color="primary">Text</MaterialButton>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `node` | | Button content |
+| `variant` | `string` | `'contained'` | Button variant (`contained`, `outlined`, `text`) |
+| `color` | `string` | `'primary'` | Button color (`primary`, `secondary`, `success`, `error`, `warning`, `info`) |
+| `size` | `string` | `'medium'` | Button size (`small`, `medium`, `large`) |
+| `disabled` | `boolean` | `false` | Whether the button is disabled |
+| `fullWidth` | `boolean` | `false` | Whether the button takes full width |
+| `rounded` | `boolean` | `false` | Whether to use rounded corners |
+| `onClick` | `function` | | Click handler |
+| `className` | `string` | `''` | Additional CSS class |
+
+## Best Practices
+
+- Use primary buttons for the main action in a form or section
+- Use secondary or outlined buttons for less important actions
+- Include descriptive text that clearly indicates the button's action
+- Maintain consistent button styling across your application
+- Ensure there's enough contrast between the button and background 

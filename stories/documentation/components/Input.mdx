@@ -1,0 +1,145 @@
+import { Meta } from '@storybook/addon-docs';
+import { Input } from '../../../components/Input/Input';
+
+<Meta title="Documentation/Components/Input" />
+
+# Input
+
+The Input component provides a flexible and accessible way to collect user data through text input fields.
+
+## Import
+
+```jsx
+import { Input } from 'elektrik-design-system';
+```
+
+## Basic Usage
+
+```jsx
+<Input 
+  label="Username" 
+  placeholder="Enter your username" 
+/>
+```
+
+## Variants
+
+The Input component supports different visual variants to match your UI needs:
+
+```jsx
+<Input variant="default" label="Default Input" />
+<Input variant="outlined" label="Outlined Input" />
+<Input variant="filled" label="Filled Input" />
+```
+
+## States
+
+Inputs can display different states to provide feedback to users:
+
+```jsx
+<Input label="Default state" />
+<Input label="Error state" state="error" helperText="This field is required" />
+<Input label="Success state" state="success" helperText="Username is available" />
+<Input label="Disabled input" disabled />
+<Input label="Read-only input" readOnly value="Read-only content" />
+```
+
+## Sizes
+
+```jsx
+<Input size="small" label="Small input" />
+<Input size="medium" label="Medium input" /> {/* default */}
+<Input size="large" label="Large input" />
+```
+
+## With Icons
+
+Inputs can include leading and trailing icons for visual enhancement and functionality:
+
+```jsx
+<Input
+  label="Search"
+  placeholder="Search..."
+  leadingIcon={<SearchIcon />}
+/>
+
+<Input
+  label="Password"
+  type="password"
+  trailingIcon={<EyeIcon />}
+/>
+```
+
+The component will automatically show appropriate icons for error and success states:
+
+```jsx
+<Input 
+  label="Email" 
+  state="error" 
+  helperText="Invalid email format" 
+/>
+
+<Input 
+  label="Username" 
+  state="success" 
+  helperText="Username is available" 
+/>
+```
+
+## Required Inputs
+
+```jsx
+<Input 
+  label="Email" 
+  required 
+  placeholder="Enter your email" 
+/>
+```
+
+## Helper Text
+
+Adding helper text provides additional guidance to users:
+
+```jsx
+<Input 
+  label="Password" 
+  type="password" 
+  helperText="Password must be at least 8 characters" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | auto-generated | Unique identifier for the input |
+| `name` | `string` | | Name attribute for the input element |
+| `label` | `node` | | Label text displayed above the input |
+| `placeholder` | `string` | | Placeholder text displayed inside the input |
+| `value` | `string\|number` | | Controlled value for the input |
+| `defaultValue` | `string\|number` | | Default value for uncontrolled input |
+| `type` | `string` | `'text'` | HTML input type attribute |
+| `variant` | `string` | `'default'` | Visual variant (`default`, `outlined`, `filled`) |
+| `size` | `string` | `'medium'` | Input size (`small`, `medium`, `large`) |
+| `state` | `string` | `'default'` | Input state (`default`, `error`, `success`) |
+| `helperText` | `node` | | Helper text displayed below the input |
+| `leadingIcon` | `node` | | Icon to display at the beginning of the input |
+| `trailingIcon` | `node` | | Icon to display at the end of the input |
+| `disabled` | `boolean` | `false` | Whether the input is disabled |
+| `readOnly` | `boolean` | `false` | Whether the input is read-only |
+| `required` | `boolean` | `false` | Whether the input is required |
+| `onChange` | `function` | | Handler for change events |
+| `onFocus` | `function` | | Handler for focus events |
+| `onBlur` | `function` | | Handler for blur events |
+| `className` | `string` | `''` | Additional CSS class |
+
+## Best Practices
+
+- Always provide a clear, descriptive label for every input
+- Use placeholder text to provide an example, not to replace labels
+- Display validation errors clearly with helpful error messages
+- Group related inputs together
+- Use appropriate input types for different data (email, password, number, etc.)
+- Consider the mobile experience for touch interactions
+- Ensure sufficient color contrast for accessibility
+- If an input is required, indicate it visually and programmatically 

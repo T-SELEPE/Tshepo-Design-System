@@ -1,0 +1,160 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Design Tokens" />
+
+# Design Tokens
+
+Design tokens are the visual design atoms of the Elektrik ⚡ Design System. They define the visual properties and ensure consistency across all components.
+
+## Importing Tokens
+
+You can import and use these tokens in your custom components:
+
+```jsx
+import { 
+  colors, 
+  typography, 
+  spacing, 
+  borderRadius, 
+  animation 
+} from 'elektrik-design-system';
+```
+
+## Colors
+
+The color tokens define the color palette used throughout the design system:
+
+```jsx
+// Primary colors
+colors.primary      // #6941C6 - Main brand color
+colors.white        // #FFFFFF - White
+colors.focus        // rgba(105, 65, 198, 0.3) - Focus ring color
+
+// Gray scale
+colors.gray50       // #F9FAFB - Lightest gray
+colors.gray100      // #F2F4F7
+colors.gray200      // #EAECF0
+colors.gray300      // #D0D5DD
+colors.gray500      // #667085
+colors.gray700      // #344054
+colors.gray900      // #101828 - Darkest gray
+
+// Feedback colors
+colors.success      // #12B76A - Success green
+colors.error        // #F04438 - Error red
+colors.warning      // #F79009 - Warning orange
+colors.info         // #0BA5EC - Information blue
+
+// Light feedback colors (backgrounds)
+colors.successLight // #ECFDF3 - Light success background
+colors.errorLight   // #FEF3F2 - Light error background
+colors.warningLight // #FFFAEB - Light warning background
+colors.infoLight    // #EFF8FF - Light info background
+```
+
+## Typography
+
+Typography tokens define font family, sizes, and weights:
+
+```jsx
+// Font family
+typography.fontFamily  // 'Poppins, sans-serif'
+
+// Font weights
+typography.fontWeights.regular  // 400
+typography.fontWeights.medium   // 500
+typography.fontWeights.semibold // 600
+typography.fontWeights.bold     // 700
+
+// Font sizes
+typography.fontSizes.xs  // '12px'
+typography.fontSizes.sm  // '14px'
+typography.fontSizes.md  // '16px'
+typography.fontSizes.lg  // '18px'
+typography.fontSizes.xl  // '20px'
+```
+
+## Spacing
+
+Spacing tokens ensure consistent spacing throughout the interface:
+
+```jsx
+spacing.xs   // '4px'  - Extra small spacing
+spacing.sm   // '8px'  - Small spacing
+spacing.md   // '12px' - Medium spacing
+spacing.lg   // '16px' - Large spacing
+spacing.xl   // '24px' - Extra large spacing
+spacing.xxl  // '32px' - Double extra large spacing
+```
+
+## Border Radius
+
+Border radius tokens define the rounding of corners:
+
+```jsx
+borderRadius.sm     // '6px'  - Small radius
+borderRadius.md     // '8px'  - Medium radius
+borderRadius.lg     // '12px' - Large radius
+borderRadius.xl     // '16px' - Extra large radius
+borderRadius.pill   // '9999px' - Pill shape (fully rounded)
+```
+
+## Animation
+
+Animation tokens define timing for transitions:
+
+```jsx
+animation.fast   // '0.15s' - Fast transitions
+animation.normal // '0.2s'  - Normal transitions
+animation.slow   // '0.3s'  - Slow transitions
+```
+
+## Focus Style
+
+A predefined focus style for accessibility:
+
+```jsx
+import { focusStyle } from 'elektrik-design-system';
+
+// Use in styled-components
+const StyledButton = styled.button`
+  ${focusStyle}
+`;
+
+// The focus style expands to:
+// outline: none;
+// box-shadow: 0 0 0 4px ${colors.focus};
+```
+
+## Usage in Components
+
+Here's how to use tokens in your custom components:
+
+```jsx
+import styled from 'styled-components';
+import { colors, typography, spacing, borderRadius, animation } from 'elektrik-design-system';
+
+const CustomCard = styled.div`
+  background-color: ${colors.white};
+  border: 1px solid ${colors.gray200};
+  border-radius: ${borderRadius.md};
+  padding: ${spacing.lg};
+  font-family: ${typography.fontFamily};
+  font-size: ${typography.fontSizes.md};
+  color: ${colors.gray900};
+  transition: box-shadow ${animation.normal};
+  
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+`;
+```
+
+## Best Practices
+
+- Always use design tokens instead of hardcoded values
+- If you need a value not covered by tokens, consider proposing it as a new token
+- Use semantic token names (like `colors.primary`) rather than value-based names
+- Maintain the spacing scale (xs, sm, md, lg, xl) for visual rhythm
+- Follow the type scale for typography to maintain hierarchy
+- Use color tokens consistently to maintain meaning (e.g., `error` for errors, `success` for success states) 

@@ -1,0 +1,161 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Material UI Integration" />
+
+# Material UI Integration
+
+The Elektrik ⚡ Design System includes integration with Material UI, providing enhanced components and icons while maintaining a consistent design language.
+
+## Overview
+
+Material UI is a popular React UI framework that provides a comprehensive set of pre-built components. Elektrik integrates Material UI in two main ways:
+
+1. **MaterialButton Component**: A wrapper around Material UI's Button that follows Elektrik's design tokens
+2. **MaterialIcons Utility**: A collection of Material UI icons styled to match the design system
+
+## Installation
+
+Material UI dependencies are included with the Elektrik Design System:
+
+```json
+"dependencies": {
+  "@emotion/react": "^11.14.0",
+  "@emotion/styled": "^11.14.0",
+  "@mui/icons-material": "^7.1.0",
+  "@mui/material": "^7.1.0"
+}
+```
+
+## MaterialButton Component
+
+The `MaterialButton` component extends Material UI's Button and IconButton components to match our design system styling:
+
+### Import
+
+```jsx
+import { MaterialButton } from 'elektrik-design-system';
+```
+
+### Basic Usage
+
+```jsx
+// Simple button
+<MaterialButton>Click Me</MaterialButton>
+
+// With variant and color
+<MaterialButton variant="outlined" color="primary">
+  Outlined Button
+</MaterialButton>
+```
+
+### With Icons
+
+```jsx
+import { MaterialIcons } from 'elektrik-design-system';
+
+// With start icon
+<MaterialButton startIcon={<MaterialIcons.Plus />}>
+  Add Item
+</MaterialButton>
+
+// With end icon
+<MaterialButton endIcon={<MaterialIcons.ChevronRight />}>
+  Next
+</MaterialButton>
+
+// With both icons
+<MaterialButton 
+  startIcon={<MaterialIcons.Check />}
+  endIcon={<MaterialIcons.ChevronRight />}
+>
+  Continue
+</MaterialButton>
+```
+
+### Icon-only Buttons
+
+```jsx
+<MaterialButton 
+  iconOnly 
+  startIcon={<MaterialIcons.Plus />} 
+  aria-label="Add item"
+/>
+
+<MaterialButton 
+  iconOnly 
+  rounded
+  color="error"
+  startIcon={<MaterialIcons.X />} 
+  aria-label="Delete"
+/>
+```
+
+### Props
+
+See the [Button documentation](/docs/documentation-components-button--docs#material-button) for the complete list of props.
+
+## Material Icons
+
+The `MaterialIcons` utility provides a collection of commonly used Material UI icons:
+
+### Import
+
+```jsx
+import { MaterialIcons } from 'elektrik-design-system';
+```
+
+### Basic Usage
+
+```jsx
+<MaterialIcons.CheckCircle />
+<MaterialIcons.AlertTriangle />
+<MaterialIcons.Star filled={true} />
+```
+
+### Available Icons
+
+- **Alert/Feedback**: `AlertCircle`, `AlertTriangle`, `CheckCircle`, `XCircle`, `X`
+- **Rating**: `Star` (accepts `filled` prop)
+- **Toggle/Counter**: `Plus`, `Minus`
+- **Checkbox/Radio**: `Check`, `CheckBox`, `CheckBoxEmpty`, `RadioChecked`, `RadioUnchecked`
+- **Dropdown/Accordion**: `ChevronDown`, `ChevronRight`, `ExpandMore`, `ExpandLess`
+
+## Styling Material UI Components
+
+To style other Material UI components to match our design system:
+
+```jsx
+import { styled } from '@mui/material/styles';
+import Slider from '@mui/material/Slider';
+import { colors, typography, spacing } from 'elektrik-design-system';
+
+// Create a styled Material UI component
+const StyledSlider = styled(Slider)({
+  color: colors.primary,
+  height: 8,
+  '& .MuiSlider-thumb': {
+    backgroundColor: colors.white,
+    border: `2px solid ${colors.primary}`,
+  },
+});
+
+// Usage
+function MyComponent() {
+  return (
+    <StyledSlider 
+      value={50}
+      onChange={handleChange}
+      aria-label="Volume"
+    />
+  );
+}
+```
+
+## Best Practices
+
+- Always use Elektrik's design tokens (colors, spacing, typography, etc.) when styling Material UI components
+- Provide proper accessibility attributes for components, especially icon-only buttons
+- Import only the specific Material UI components you need to minimize bundle size
+- Use the `styled` API for custom styling rather than inline styles
+- Maintain consistency with the rest of the design system in terms of visual style
+- For complex Material UI components, consider creating wrappers similar to MaterialButton to ensure consistent styling 

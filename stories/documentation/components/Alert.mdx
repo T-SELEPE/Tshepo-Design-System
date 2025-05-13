@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Components/Alert" />
+
+# Alert
+
+Alerts are used to communicate important messages to users, providing context or feedback about an action or system status.
+
+## Import
+
+```jsx
+import { Alert } from 'elektrik-design-system';
+```
+
+## Basic Usage
+
+```jsx
+<Alert>This is a default alert</Alert>
+<Alert variant="success">Operation completed successfully!</Alert>
+<Alert variant="error">An error occurred. Please try again.</Alert>
+<Alert variant="warning">Your session will expire in 5 minutes.</Alert>
+<Alert variant="info">A new update is available.</Alert>
+```
+
+## Variants
+
+The Alert component comes in several variants to communicate different types of messages:
+
+- **Default/Primary**: For general information that doesn't fit other categories
+- **Success**: For successful operations and positive feedback
+- **Error**: For errors, failures, and critical issues
+- **Warning**: For potential issues or important notices
+- **Info**: For neutral, informational messages
+
+```jsx
+<Alert variant="primary">Primary alert message</Alert>
+<Alert variant="success">Success alert message</Alert>
+<Alert variant="error">Error alert message</Alert>
+<Alert variant="warning">Warning alert message</Alert>
+<Alert variant="info">Info alert message</Alert>
+```
+
+## With Title
+
+You can add a title to provide more context to your alert messages:
+
+```jsx
+<Alert 
+  variant="success" 
+  title="Success!"
+>
+  Your changes have been saved.
+</Alert>
+
+<Alert 
+  variant="error" 
+  title="Error"
+>
+  Failed to save changes. Please try again later.
+</Alert>
+```
+
+## Dismissible Alerts
+
+Alerts can be dismissible, allowing users to close them:
+
+```jsx
+<Alert 
+  variant="info" 
+  dismissible 
+  onDismiss={() => console.log('Alert dismissed')}
+>
+  This alert can be dismissed.
+</Alert>
+```
+
+## With Custom Icons
+
+You can customize the icon displayed in the alert:
+
+```jsx
+<Alert 
+  variant="warning" 
+  icon={<CustomIcon />}
+>
+  Alert with custom icon
+</Alert>
+```
+
+## Sizes
+
+```jsx
+<Alert size="small">Small alert message</Alert>
+<Alert size="medium">Medium alert message</Alert>
+<Alert size="large">Large alert message</Alert>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `node` | | Alert content |
+| `variant` | `string` | `'primary'` | Alert variant (`primary`, `success`, `error`, `warning`, `info`) |
+| `title` | `string` | | Optional title for the alert |
+| `icon` | `node` | | Custom icon for the alert (defaults to an appropriate icon based on variant) |
+| `dismissible` | `boolean` | `false` | Whether the alert can be dismissed |
+| `onDismiss` | `function` | | Handler for dismiss events |
+| `size` | `string` | `'medium'` | Alert size (`small`, `medium`, `large`) |
+| `className` | `string` | `''` | Additional CSS class |
+
+## Best Practices
+
+- Use the appropriate variant to match the type of message
+- Keep alert messages concise and clear
+- Use alerts sparingly to avoid overwhelming users
+- Place alerts in relevant locations close to the content they reference
+- For dismissible alerts, ensure they disappear when they're no longer relevant
+- Include specific guidance on how to resolve issues in error alerts
+- Avoid using alerts for non-essential information 
